@@ -12,7 +12,7 @@ of our TIE model. For more details, please refer to our paper:
 
 Next we will pre-processing data using guidelines in [the WebSRC office repository](https://github.com/X-LANCE/WebSRC-Baseline#data-pre-processing).
 
-    git clone https://github.com/X-LANCE/WebSRC-Baseline.git
+    git clone https://github.com/huonglarne/WebSRC-Baseline.git
     bash ./test/test_all.sh ./data
     cd src
     python dataset_generation.py --root_dir ../data --version websrc1.0
