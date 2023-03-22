@@ -6,6 +6,27 @@ pages to tackle the web base **S**tructure **R**eading **C**omprehension (SRC) t
 of our TIE model. For more details, please refer to our paper:
 
 [TIE: Topological Information Enhanced Structural Reading Comprehension on Web Pages](https://arxiv.org/abs/2205.06435)
+## Run with Moreh
+    conda create -n markuplm python=3.8
+    pip install -r requirements.txt
+
+Next we will pre-processing data using guidelines in [the WebSRC office repository](https://github.com/X-LANCE/WebSRC-Baseline#data-pre-processing).
+
+    git clone https://github.com/X-LANCE/WebSRC-Baseline.git
+    bash ./test/test_all.sh ./data
+    cd src
+    python dataset_generation.py --root_dir ../data --version websrc1.0
+    bash ./script/BERT/H-PLM/train.sh
+    bash ./script/BERT/H-PLM/eval.sh
+    cp WebSRC-Baseline/data TIE/
+
+Back to TIE to train MarkupLM.
+
+    python src/data_preprocess.py --root_dir ./data --task rect_mask
+    bash ./script/MarkupLM/train.sh
+    bash ./script/MarkupLM/eval_stage_1.sh
+    bash ./script/MarkupLM/eval_stage_2.sh markuplm ./token_QA ./result/MarkupLM/nbest_prediction_27000.json
+
 
 ## Requirements
 

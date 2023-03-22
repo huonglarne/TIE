@@ -5,7 +5,7 @@ import torch
 import numpy as np
 from torch.utils.data import Dataset
 
-from utils import form_dom_mask, form_npr_mask
+from .utils import form_dom_mask, form_npr_mask
 
 
 # noinspection PyUnresolvedReferences
